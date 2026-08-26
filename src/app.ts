@@ -10,7 +10,6 @@ import passport from './config/passport';
 import { env } from './config/env';
 import { generalLimiter } from './middleware/rateLimiter';
 import { errorHandler } from './middleware/errorHandler';
-
 import authRoutes from './routes/auth';
 import musicRoutes from './routes/music';
 import favoritesRoutes from './routes/favorites';
