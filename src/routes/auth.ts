@@ -9,6 +9,6 @@ const router = Router();
 router.get('/google', authLimiter, passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/google/callback', passport.authenticate('google', { session: false, failureRedirect: '/login' }), authController.googleCallback);
 router.get('/me', authenticate, authController.getMe);
-router.post('/logout', authenticate, authController.logout);
+router.post('/logout', authController.logout);
 
 export default router;

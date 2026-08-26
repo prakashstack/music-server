@@ -12,6 +12,6 @@ const router = (0, express_1.Router)();
 router.get('/google', rateLimiter_1.authLimiter, passport_1.default.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/google/callback', passport_1.default.authenticate('google', { session: false, failureRedirect: '/login' }), authController_1.authController.googleCallback);
 router.get('/me', auth_1.authenticate, authController_1.authController.getMe);
-router.post('/logout', auth_1.authenticate, authController_1.authController.logout);
+router.post('/logout', authController_1.authController.logout);
 exports.default = router;
 //# sourceMappingURL=auth.js.map
