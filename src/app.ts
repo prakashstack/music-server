@@ -44,7 +44,8 @@ app.use(session({
   store: env.MONGODB_URI ? MongoStore.create({
     clientPromise: mongoose.connection.asPromise().then((m) => m.getClient() as any),
   }) : undefined,
-  cookie: { secure: env.NODE_ENV === 'production', maxAge: 7 * 24 * 60 * 60 * 1000 },
+  cookie: { secure: true,
+  sameSite: 'none', maxAge: 7 * 24 * 60 * 60 * 1000 },
 }));
 
 // Passport
